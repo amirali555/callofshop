@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>کالاف‌استور | خرید و فروش اکانت کالاف دیوتی</title>
+  <meta name="description" content="خرید و فروش اکانت کالاف دیوتی موبایل و وارزون با گارانتی اصالت، تحویل فوری و پشتیبانی ۲۴ ساعته">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ===== نوار بالا ===== -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🎮</span>
+        <span>کالاف<b>استور</b></span>
+      </a>
+      <nav>
+        <ul class="nav-links" id="navMenu">
+          <li><a href="index.html" class="active">خانه</a></li>
+          <li><a href="store.html">فروشگاه</a></li>
+          <li><a href="sell.html">فروش اکانت</a></li>
+          <li><a href="faq.html">سوالات متداول</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-btn">
+          🛒 سبد خرید
+          <span class="cart-count" data-cart-count>0</span>
+        </a>
+        <button class="burger" id="navBurger" aria-label="منو">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== هیرو ===== -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div>
+        <span class="hero-tag">🔥 معتبرترین مرجع خرید و فروش اکانت کالاف</span>
+        <h1>اکانت کالاف <em>حرفه‌ای</em> را همین‌جا بخر یا بفروش!</h1>
+        <p class="lead">
+          هزاران اکانت کالاف دیوتی موبایل و وارزون با رنک لجندری، اسلحه‌های افسانه‌ای و میتیک،
+          همه با <b>گارانتی اصالت</b> و <b>تحویل فوری</b>. اگر هم اکانت خوبی داری، همین حالا بفروشش!
+        </p>
+        <div class="hero-btns">
+          <a href="store.html" class="btn btn-orange btn-lg">🛒 مشاهده اکانت‌ها</a>
+          <a href="sell.html" class="btn btn-ghost btn-lg">💰 فروش اکانت</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-box"><b>+۱٬۲۰۰</b><small>اکانت فروخته‌شده</small></div>
+          <div class="stat-box"><b>۹۸٪</b><small>رضایت خریداران</small></div>
+          <div class="stat-box"><b>۲۴/۷</b><small>پشتیبانی فعال</small></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="assets/img/hero.jpg" alt="کالاف دیوتی">
+        <div class="hero-visual-caption">
+          اکانت لجندری VIP
+          <small>۴٬۸۵۰٬۰۰۰ تومان</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- ===== مزیت‌ها ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>چرا <span>کالاف‌استور</span>؟</h2>
+          <p>خرید اکانت با خیال راحت؛ همه‌چیز شفاف، تضمین‌شده و سریع</p>
+        </div>
+        <div class="grid-4">
+          <div class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h3>گارانتی اصالت</h3>
+            <p>تمام اکانت‌ها قبل از انتشار بررسی و تأیید می‌شوند</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>تحویل فوری</h3>
+            <p>اطلاعات اکانت بلافاصله بعد از پرداخت ارسال می‌شود</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>پرداخت امن</h3>
+            <p>درگاه پرداخت مطمئن و امکان پرداخت کارت‌به‌کارت</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎧</div>
+            <h3>پشتیبانی ۲۴/۷</h3>
+            <p>تیم پشتیبانی همیشه در واتساپ و تلگرام پاسخگوست</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== اکانت‌های ویژه ===== -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="section-head">
+          <h2>اکانت‌های <span>ویژه</span></h2>
+          <p>منتخب بهترین اکانت‌های فروشگاه با تخفیف ویژه</p>
+        </div>
+        <div class="grid-3" id="featuredGrid"></div>
+        <div style="text-align:center; margin-top:34px">
+          <a href="store.html" class="btn btn-outline btn-lg">مشاهده همه اکانت‌ها ←</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== دسته‌بندی‌ها ===== -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="section-head">
+          <h2>دسته‌بندی <span>بازی‌ها</span></h2>
+          <p>اکانت خودت رو بر اساس بازی پیدا کن</p>
+        </div>
+        <div class="grid-3">
+          <a href="store.html?game=کالاف+موبایل" class="cat-card">
+            <img src="assets/img/acc1.jpg" alt="کالاف موبایل">
+            <div class="cat-overlay"><h3>🎮 کالاف موبایل</h3><small>اکانت‌های موبایل ←</small></div>
+          </a>
+          <a href="store.html?game=وارزون" class="cat-card">
+            <img src="assets/img/acc2.jpg" alt="وارزون">
+            <div class="cat-overlay"><h3>🪂 وارزون</h3><small>اکانت‌های وارزون ←</small></div>
+          </a>
+          <a href="store.html?game=" class="cat-card">
+            <img src="assets/img/acc3.jpg" alt="همه اکانت‌ها">
+            <div class="cat-overlay"><h3>🔥 همه اکانت‌ها</h3><small>مشاهده کامل ←</small></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== مراحل خرید ===== -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="section-head">
+          <h2>خرید در <span>۴ قدم</span> ساده</h2>
+          <p>از انتخاب تا تحویل، بدون هیچ دردسری</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-icon">🔍</div>
+            <h3>انتخاب اکانت</h3>
+            <p>اکانت موردنظرت رو با فیلترهای رنک، لول و قیمت پیدا کن</p>
+          </div>
+          <div class="step">
+            <div class="step-icon">💳</div>
+            <h3>پرداخت امن</h3>
+            <p>از طریق درگاه پرداخت یا کارت‌به‌کارت مبلغ رو پرداخت کن</p>
+          </div>
+          <div class="step">
+            <div class="step-icon">📨</div>
+            <h3>تحویل فوری</h3>
+            <p>اطلاعات کامل اکانت (ایمیل و رمز) بلافاصله ارسال می‌شود</p>
+          </div>
+          <div class="step">
+            <div class="step-icon">🎧</div>
+            <h3>پشتیبانی</h3>
+            <p>تا ۷۲ ساعت گارانتی داریم و در هر سوالی کنارتیم</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== نظرات ===== -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="section-head">
+          <h2>نظر <span>خریداران</span></h2>
+          <p>بیش از ۱۲۰۰ خرید موفق در سراسر کشور</p>
+        </div>
+        <div class="grid-3">
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>«اکانت لجندری رو خریدم، بعد از ۵ دقیقه اطلاعات کامل اومد. یه ماهه دارم بازی می‌کنم و هیچ مشکلی پیش نیومده. عالی بود!»</p>
+            <div class="who">
+              <span class="avatar" style="background:linear-gradient(135deg,#ff7a18,#ff4d00)">ا</span>
+              <div><b>امیرحسین</b><small>تهران</small></div>
+            </div>
+          </div>
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>«اکانتم رو فروختم و پولش دقیقاً همون روز واریز شد. فرایند بررسی هم خیلی سریع بود. حتماً به دوستام معرفی می‌کنم.»</p>
+            <div class="who">
+              <span class="avatar" style="background:linear-gradient(135deg,#22d3ee,#0ea5e9)">م</span>
+              <div><b>محمد</b><small>اصفهان</small></div>
+            </div>
+          </div>
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>«اولش شک داشتم، ولی گارانتی ۷۲ ساعته‌شون واقعیه. پشتیبانی واتساپ هم همیشه آنلاینه. بهترین تجربه خرید اکانت!»</p>
+            <div class="who">
+              <span class="avatar" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)">س</span>
+              <div><b>سارا</b><small>شیراز</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== بنر فروش اکانت ===== -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="sell-banner">
+          <h2>💰 اکانت داری؟ بفروشش!</h2>
+          <p>اکانتت رو همین حالا ثبت کن؛ کارشناسان ما رایگان بررسی‌اش می‌کنن و بعد از فروش، پولش رو سریع و مطمئن بهت پرداخت می‌کنیم.</p>
+          <a href="sell.html" class="btn btn-orange btn-lg">ثبت اکانت برای فروش</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== فوتر ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="index.html" class="logo">
+            <span class="logo-icon">🎮</span>
+            <span>کالاف<b>استور</b></span>
+          </a>
+          <p>کالاف‌استور، معتبرترین مرجع خرید و فروش اکانت کالاف دیوتی در ایران. همه اکانت‌ها با گارانتی اصالت، تحویل فوری و پشتیبانی ۲۴ ساعته.</p>
+          <div class="socials">
+            <a href="#" title="اینستاگرام">📷</a>
+            <a href="#" title="تلگرام">✈️</a>
+            <a href="#" title="واتساپ">💬</a>
+            <a href="#" title="دیسکورد">🎧</a>
+          </div>
+        </div>
+        <div>
+          <h4>دسترسی سریع</h4>
+          <ul>
+            <li><a href="index.html">خانه</a></li>
+            <li><a href="store.html">فروشگاه</a></li>
+            <li><a href="sell.html">فروش اکانت</a></li>
+            <li><a href="faq.html">سوالات متداول</a></li>
+            <li><a href="cart.html">سبد خرید</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>خدمات</h4>
+          <ul>
+            <li><a href="store.html?game=کالاف+موبایل">اکانت کالاف موبایل</a></li>
+            <li><a href="store.html?game=وارزون">اکانت وارزون</a></li>
+            <li><a href="store.html">اکانت اقتصادی</a></li>
+            <li><a href="store.html">اکانت لجندری</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>تماس با ما</h4>
+          <ul>
+            <li>📞 <a href="#">۰۹۱۲ ۰۰۰ ۰۰۰۰</a></li>
+            <li>✉️ <a href="#">support@kalafstore.ir</a></li>
+            <li>💬 <a href="#">پشتیبانی واتساپ ۲۴/۷</a></li>
+            <li>🕐 <a href="#">شنبه تا جمعه، ۲۴ ساعته</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span data-year>۱۴۰۴</span> کالاف‌استور — تمامی حقوق محفوظ است.</p>
+        <p>ساخته‌شده با ❤️ برای گیمرهای ایرانی</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="wa-float" title="پشتیبانی واتساپ">💬</a>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const featured = ACCOUNTS.filter(a => a.featured).slice(0, 3);
+      document.getElementById("featuredGrid").innerHTML = featured.map(accountCard).join("");
+    });
+  </script>
+</body>
+</html>

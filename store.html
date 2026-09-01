@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فروشگاه اکانت کالاف | کالاف‌استور</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🎮</span>
+        <span>کالاف<b>استور</b></span>
+      </a>
+      <nav>
+        <ul class="nav-links" id="navMenu">
+          <li><a href="index.html">خانه</a></li>
+          <li><a href="store.html" class="active">فروشگاه</a></li>
+          <li><a href="sell.html">فروش اکانت</a></li>
+          <li><a href="faq.html">سوالات متداول</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-btn">
+          🛒 سبد خرید
+          <span class="cart-count" data-cart-count>0</span>
+        </a>
+        <button class="burger" id="navBurger" aria-label="منو">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">خانه</a> / <span>فروشگاه</span>
+      </nav>
+
+      <div class="store-layout">
+        <!-- فیلترها -->
+        <aside class="filters">
+          <h3>⚙️ فیلترها</h3>
+          <div class="filter-group">
+            <label>جستجو</label>
+            <input type="text" id="fSearch" placeholder="مثلاً: لجندری ...">
+          </div>
+          <div class="filter-group">
+            <label>بازی</label>
+            <select id="fGame">
+              <option value="">همه بازی‌ها</option>
+              <option value="کالاف موبایل">کالاف موبایل</option>
+              <option value="وارزون">وارزون</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>رنک</label>
+            <select id="fRank">
+              <option value="">همه رنک‌ها</option>
+              <option value="لجندری">لجندری</option>
+              <option value="استاد بزرگ">استاد بزرگ</option>
+              <option value="استاد">استاد</option>
+              <option value="حرفه‌ای">حرفه‌ای</option>
+              <option value="نقره">نقره</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>قیمت (تومان)</label>
+            <div class="range-row">
+              <input type="number" id="fMin" placeholder="حداقل">
+              <input type="number" id="fMax" placeholder="حداکثر">
+            </div>
+          </div>
+          <div class="filter-group">
+            <label>مرتب‌سازی</label>
+            <select id="fSort">
+              <option value="new">جدیدترین</option>
+              <option value="cheap">ارزان‌ترین</option>
+              <option value="expensive">گران‌ترین</option>
+              <option value="level">بالاترین لول</option>
+              <option value="cp">بیشترین سی‌پی</option>
+            </select>
+          </div>
+          <button class="btn btn-ghost btn-block" onclick="resetFilters()">↺ حذف فیلترها</button>
+        </aside>
+
+        <!-- لیست اکانت‌ها -->
+        <div>
+          <div class="store-head">
+            <h1>همه <span>اکانت‌ها</span></h1>
+            <div class="store-toolbar">
+              <span class="store-count" id="storeCount"></span>
+            </div>
+          </div>
+          <div class="store-grid" id="storeGrid"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="index.html" class="logo">
+            <span class="logo-icon">🎮</span>
+            <span>کالاف<b>استور</b></span>
+          </a>
+          <p>کالاف‌استور، معتبرترین مرجع خرید و فروش اکانت کالاف دیوتی در ایران. همه اکانت‌ها با گارانتی اصالت، تحویل فوری و پشتیبانی ۲۴ ساعته.</p>
+          <div class="socials">
+            <a href="#" title="اینستاگرام">📷</a>
+            <a href="#" title="تلگرام">✈️</a>
+            <a href="#" title="واتساپ">💬</a>
+            <a href="#" title="دیسکورد">🎧</a>
+          </div>
+        </div>
+        <div>
+          <h4>دسترسی سریع</h4>
+          <ul>
+            <li><a href="index.html">خانه</a></li>
+            <li><a href="store.html">فروشگاه</a></li>
+            <li><a href="sell.html">فروش اکانت</a></li>
+            <li><a href="faq.html">سوالات متداول</a></li>
+            <li><a href="cart.html">سبد خرید</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>خدمات</h4>
+          <ul>
+            <li><a href="store.html?game=کالاف+موبایل">اکانت کالاف موبایل</a></li>
+            <li><a href="store.html?game=وارزون">اکانت وارزون</a></li>
+            <li><a href="store.html">اکانت اقتصادی</a></li>
+            <li><a href="store.html">اکانت لجندری</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>تماس با ما</h4>
+          <ul>
+            <li>📞 <a href="#">۰۹۱۲ ۰۰۰ ۰۰۰۰</a></li>
+            <li>✉️ <a href="#">support@kalafstore.ir</a></li>
+            <li>💬 <a href="#">پشتیبانی واتساپ ۲۴/۷</a></li>
+            <li>🕐 <a href="#">شنبه تا جمعه، ۲۴ ساعته</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span data-year>۱۴۰۴</span> کالاف‌استور — تمامی حقوق محفوظ است.</p>
+        <p>ساخته‌شده با ❤️ برای گیمرهای ایرانی</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="wa-float" title="پشتیبانی واتساپ">💬</a>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    const state = { search: "", game: "", rank: "", min: "", max: "", sort: "new" };
+
+    function applyFilters() {
+      let list = getAllAccounts().filter(a => {
+        if (state.game && a.game !== state.game) return false;
+        if (state.rank && a.rank !== state.rank) return false;
+        if (state.search) {
+          const q = state.search.trim();
+          const hay = (a.title + " " + a.game + " " + a.rank + " " + (a.skins || []).join(" ")).toLowerCase();
+          if (!hay.includes(q.toLowerCase())) return false;
+        }
+        if (state.min && Number(a.price) < Number(state.min)) return false;
+        if (state.max && Number(a.price) > Number(state.max)) return false;
+        return true;
+      });
+
+      switch (state.sort) {
+        case "cheap": list.sort((a, b) => a.price - b.price); break;
+        case "expensive": list.sort((a, b) => b.price - a.price); break;
+        case "level": list.sort((a, b) => b.level - a.level); break;
+        case "cp": list.sort((a, b) => b.cp - a.cp); break;
+        default: list.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+      }
+
+      const grid = document.getElementById("storeGrid");
+      if (!list.length) {
+        grid.innerHTML = '<div class="empty-state"><div class="big">😕</div><h3>اکانتی پیدا نشد</h3><p>فیلترها رو تغییر بده یا دوباره جستجو کن</p></div>';
+      } else {
+        grid.innerHTML = list.map(accountCard).join("");
+      }
+      document.getElementById("storeCount").textContent = faNum(list.length) + " اکانت";
+    }
+
+    function resetFilters() {
+      ["fSearch", "fGame", "fRank", "fMin", "fMax"].forEach(id => document.getElementById(id).value = "");
+      document.getElementById("fSort").value = "new";
+      state.search = state.game = state.rank = state.min = state.max = "";
+      state.sort = "new";
+      applyFilters();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(location.search);
+      const g = params.get("game");
+      if (g) {
+        state.game = g;
+        document.getElementById("fGame").value = g;
+      }
+      ["fSearch", "fGame", "fRank", "fMin", "fMax"].forEach(id => {
+        document.getElementById(id).addEventListener("input", e => {
+          state[e.target.id.slice(1).toLowerCase()] = e.target.value.trim();
+          applyFilters();
+        });
+      });
+      document.getElementById("fSort").addEventListener("change", e => {
+        state.sort = e.target.value;
+        applyFilters();
+      });
+      applyFilters();
+    });
+  </script>
+</body>
+</html>

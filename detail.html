@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جزئیات اکانت | کالاف‌استور</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🎮</span>
+        <span>کالاف<b>استور</b></span>
+      </a>
+      <nav>
+        <ul class="nav-links" id="navMenu">
+          <li><a href="index.html">خانه</a></li>
+          <li><a href="store.html" class="active">فروشگاه</a></li>
+          <li><a href="sell.html">فروش اکانت</a></li>
+          <li><a href="faq.html">سوالات متداول</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-btn">
+          🛒 سبد خرید
+          <span class="cart-count" data-cart-count>0</span>
+        </a>
+        <button class="burger" id="navBurger" aria-label="منو">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">خانه</a> / <a href="store.html">فروشگاه</a> / <span id="bcTitle">اکانت</span>
+      </nav>
+      <div id="detailRoot" class="detail-layout"></div>
+
+      <!-- اکانت‌های مشابه -->
+      <div class="section" style="padding-top:10px">
+        <div class="section-head">
+          <h2>اکانت‌های <span>مشابه</span></h2>
+        </div>
+        <div class="grid-3" id="similarGrid"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="index.html" class="logo">
+            <span class="logo-icon">🎮</span>
+            <span>کالاف<b>استور</b></span>
+          </a>
+          <p>کالاف‌استور، معتبرترین مرجع خرید و فروش اکانت کالاف دیوتی در ایران. همه اکانت‌ها با گارانتی اصالت، تحویل فوری و پشتیبانی ۲۴ ساعته.</p>
+          <div class="socials">
+            <a href="#" title="اینستاگرام">📷</a>
+            <a href="#" title="تلگرام">✈️</a>
+            <a href="#" title="واتساپ">💬</a>
+            <a href="#" title="دیسکورد">🎧</a>
+          </div>
+        </div>
+        <div>
+          <h4>دسترسی سریع</h4>
+          <ul>
+            <li><a href="index.html">خانه</a></li>
+            <li><a href="store.html">فروشگاه</a></li>
+            <li><a href="sell.html">فروش اکانت</a></li>
+            <li><a href="faq.html">سوالات متداول</a></li>
+            <li><a href="cart.html">سبد خرید</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>خدمات</h4>
+          <ul>
+            <li><a href="store.html?game=کالاف+موبایل">اکانت کالاف موبایل</a></li>
+            <li><a href="store.html?game=وارزون">اکانت وارزون</a></li>
+            <li><a href="store.html">اکانت اقتصادی</a></li>
+            <li><a href="store.html">اکانت لجندری</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>تماس با ما</h4>
+          <ul>
+            <li>📞 <a href="#">۰۹۱۲ ۰۰۰ ۰۰۰۰</a></li>
+            <li>✉️ <a href="#">support@kalafstore.ir</a></li>
+            <li>💬 <a href="#">پشتیبانی واتساپ ۲۴/۷</a></li>
+            <li>🕐 <a href="#">شنبه تا جمعه، ۲۴ ساعته</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span data-year>۱۴۰۴</span> کالاف‌استور — تمامی حقوق محفوظ است.</p>
+        <p>ساخته‌شده با ❤️ برای گیمرهای ایرانی</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="wa-float" title="پشتیبانی واتساپ">💬</a>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const id = new URLSearchParams(location.search).get("id");
+      const acc = findAccount(id);
+      const root = document.getElementById("detailRoot");
+
+      if (!acc) {
+        root.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><div class="big">🤔</div><h3>اکانت موردنظر پیدا نشد</h3><p><a href="store.html" style="color:var(--orange)">بازگشت به فروشگاه ←</a></p></div>';
+        return;
+      }
+
+      document.title = acc.title + " | کالاف‌استور";
+      document.getElementById("bcTitle").textContent = acc.title;
+
+      const old = acc.oldPrice ? `<span class="old-price" style="width:auto">${fmt(acc.oldPrice)} تومان</span>` : "";
+      const badge = acc.verified
+        ? '<span class="badge badge-verified" style="position:absolute;top:14px;right:14px">✔ تأییدشده</span>'
+        : '<span class="badge badge-pending" style="position:absolute;top:14px;right:14px">⏳ در انتظار تأیید</span>';
+
+      const canBuy = !acc.pending;
+
+      root.innerHTML = `
+        <div class="detail-gallery">
+          <img src="${acc.image}" alt="${acc.title}">
+          ${badge}
+        </div>
+        <div class="detail-info">
+          <h1>${acc.title}</h1>
+          <div class="sub">🎮 بازی: <b>${acc.game}</b> &nbsp;•&nbsp; 👤 فروشنده: <b>کالاف‌استور</b></div>
+
+          <div class="detail-stats">
+            <div class="detail-stat"><div class="v">${faNum(acc.level)}</div><div class="l">لول</div></div>
+            <div class="detail-stat"><div class="v">${acc.rank}</div><div class="l">رنک</div></div>
+            <div class="detail-stat"><div class="v">${faNum(acc.cp)}</div><div class="l">سی‌پی</div></div>
+            <div class="detail-stat"><div class="v">${faNum(acc.legendary)}</div><div class="l">اسلحه افسانه‌ای</div></div>
+            <div class="detail-stat"><div class="v">${faNum(acc.mythic)}</div><div class="l">اسلحه میتیک</div></div>
+            <div class="detail-stat"><div class="v">${acc.skins.length}</div><div class="l">اسکین</div></div>
+          </div>
+
+          <div class="detail-desc">
+            <h3>📝 توضیحات</h3>
+            <p>${acc.desc}</p>
+          </div>
+
+          <ul class="detail-features">
+            ${(acc.features || []).map(f => `<li>${f}</li>`).join("")}
+          </ul>
+
+          <div class="buy-box">
+            <span class="price-big">${fmt(acc.price)} <small>تومان</small></span> ${old}
+            <div class="buy-row">
+              ${canBuy ? `
+                <button class="btn btn-orange btn-lg" style="flex:1" onclick="addToCart(${JSON.stringify(acc.id)}); location.href='cart.html'">⚡ خرید فوری</button>
+                <button class="btn btn-ghost btn-lg" style="flex:1" onclick="addToCart(${JSON.stringify(acc.id)})">🛒 افزودن به سبد</button>
+              ` : `
+                <button class="btn btn-ghost btn-lg" style="flex:1" disabled>⏳ در انتظار تأیید کارشناس</button>
+              `}
+            </div>
+            <div class="buy-notes">
+              <span>🛡️ گارانتی ۷۲ ساعته اصالت و سلامت اکانت</span>
+              <span>⚡ تحویل اطلاعات بلافاصله پس از پرداخت (ایمیل + رمز)</span>
+              <span>🔒 پرداخت امن از طریق درگاه بانکی یا کارت‌به‌کارت</span>
+            </div>
+            <div class="seller-row">
+              <span class="avatar" style="background:linear-gradient(135deg,#ff7a18,#ff4d00); width:48px;height:48px">ک</span>
+              <div class="info">
+                <b>کالاف‌استور</b>
+                <small>✔ فروشنده تأییدشده با ۹۸٪ رضایت</small>
+              </div>
+            </div>
+          </div>
+        </div>`;
+
+      const similar = ACCOUNTS.filter(a => a.game === acc.game && a.id !== acc.id).slice(0, 3);
+      document.getElementById("similarGrid").innerHTML = similar.length
+        ? similar.map(accountCard).join("")
+        : '<p style="color:var(--muted);grid-column:1/-1;text-align:center">اکانت مشابهی موجود نیست</p>';
+    });
+  </script>
+</body>
+</html>

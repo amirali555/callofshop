@@ -1,0 +1,23 @@
+# ============================================================
+# Render Blueprint — کالاف‌استور
+# برای استقرار خودکار سایت روی Render کافیه این فایل رو
+# از طریق "New + → Blueprint" انتخاب کنی (ریپو همین ریپو باشه).
+# ============================================================
+
+services:
+  - type: web
+    name: kalafstore
+    runtime: static
+    repo: https://github.com/amirali555/abobezan
+    branch: arena/01a05ccf-abobezan
+    buildCommand: ""
+    staticPublishPath: .
+    # حذف کش قدیمی؛ چون سایت استاتیک است و ساخت ندارد
+    envVars: []
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+    domains:
+      # دامنه دلخواهت رو اینجا بذار (اختیاری):
+      # - kalafstore.ir
