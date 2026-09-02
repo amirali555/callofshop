@@ -468,7 +468,9 @@ footer { background: var(--bg-2); border-top: 1px solid var(--border); margin-to
   color: var(--text); border-radius: 10px; padding: 11px 14px; font-size: .9rem;
 }
 .checkout-form input:focus, .checkout-form select:focus { outline: none; border-color: var(--orange); }
+.form-group { margin-bottom: 14px; }
 .form-group label { display: block; font-size: .8rem; color: var(--muted); margin-bottom: 6px; font-weight: 700; }
+.filter-group { margin-bottom: 14px; }
 
 /* ===== فرم فروش ===== */
 .sell-layout { display: grid; grid-template-columns: 1.3fr .7fr; gap: 30px; padding: 30px 0 70px; align-items: start; }
