@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /cart.html
+
+Sitemap: https://amirali555.github.io/abobezan/sitemap.xml
