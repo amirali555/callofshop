@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>جزئیات اکانت | کالاف‌استور</title>
+  <meta name="description" content="مشخصات اکانت کالاف دیوتی در کالاف شاپ؛ لول، رنک، CP و آیتم‌ها را قبل از انتخاب بررسی کن.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" id="canonicalUrl" href="https://amirali555.github.io/callofshop/detail.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:site_name" content="کالاف‌استور">
+  <meta property="og:title" id="ogTitle" content="جزئیات اکانت کالاف دیوتی | کالاف شاپ">
+  <meta property="og:description" id="ogDescription" content="مشخصات اکانت کالاف دیوتی را در کالاف شاپ بررسی کن.">
+  <meta property="og:url" id="ogUrl" content="https://amirali555.github.io/callofshop/detail.html">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -119,6 +128,23 @@
 
       document.title = acc.title + " | کالاف‌استور";
       document.getElementById("bcTitle").textContent = acc.title;
+      const detailUrl = `${location.origin}${location.pathname}?id=${encodeURIComponent(acc.id)}`;
+      document.getElementById("canonicalUrl").href = detailUrl;
+      document.getElementById("ogTitle").content = `${acc.title} | کالاف شاپ`;
+      document.getElementById("ogDescription").content = `مشخصات ${acc.title} از ${acc.game} را در کالاف شاپ بررسی کن.`;
+      document.getElementById("ogUrl").content = detailUrl;
+      const productSchema = document.createElement("script");
+      productSchema.type = "application/ld+json";
+      productSchema.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": acc.title,
+        "description": acc.desc,
+        "image": new URL(acc.image, location.href).href,
+        "category": acc.game,
+        "url": detailUrl
+      });
+      document.head.appendChild(productSchema);
 
       const old = acc.oldPrice ? `<span class="old-price" style="width:auto">${fmt(acc.oldPrice)} تومان</span>` : "";
       const badge = acc.verified
@@ -129,7 +155,7 @@
 
       root.innerHTML = `
         <div class="detail-gallery">
-          <img src="${acc.image}" alt="${acc.title}">
+          <img src="${acc.image}" alt="اکانت ${acc.game} - ${acc.title}" decoding="async">
           ${badge}
         </div>
         <div class="detail-info">
