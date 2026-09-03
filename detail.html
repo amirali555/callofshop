@@ -3,16 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>جزئیات اکانت | کالاف‌استور</title>
+  <title>جزئیات اکانت کالاف دیوتی | کالاف شاپ</title>
   <meta name="description" content="مشخصات اکانت کالاف دیوتی در کالاف شاپ؛ لول، رنک، CP و آیتم‌ها را قبل از انتخاب بررسی کن.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" id="canonicalUrl" href="https://amirali555.github.io/callofshop/detail.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fa_IR">
-  <meta property="og:site_name" content="کالاف‌استور">
+  <meta property="og:site_name" content="کالاف شاپ">
   <meta property="og:title" id="ogTitle" content="جزئیات اکانت کالاف دیوتی | کالاف شاپ">
   <meta property="og:description" id="ogDescription" content="مشخصات اکانت کالاف دیوتی را در کالاف شاپ بررسی کن.">
   <meta property="og:url" id="ogUrl" content="https://amirali555.github.io/callofshop/detail.html">
+  <meta property="og:image" id="ogImage" content="https://amirali555.github.io/callofshop/assets/img/hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="twitterTitle" content="جزئیات اکانت کالاف دیوتی | کالاف شاپ">
+  <meta name="twitter:description" id="twitterDescription" content="مشخصات اکانت کالاف دیوتی را در کالاف شاپ بررسی کن.">
+  <meta name="twitter:image" id="twitterImage" content="https://amirali555.github.io/callofshop/assets/img/hero.jpg">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -21,8 +26,8 @@
   <header class="navbar">
     <div class="container">
       <a href="index.html" class="logo">
-        <span class="logo-icon">🎮</span>
-        <span>کالاف<b>استور</b></span>
+        <img class="logo-icon" src="assets/img/kalaf-shop-logo.svg" width="40" height="40" alt="لوگوی کالاف شاپ">
+        <span>کالاف<b>شاپ</b></span>
       </a>
       <nav>
         <ul class="nav-links" id="navMenu">
@@ -47,7 +52,12 @@
       <nav class="breadcrumb">
         <a href="index.html">خانه</a> / <a href="store.html">فروشگاه</a> / <span id="bcTitle">اکانت</span>
       </nav>
-      <div id="detailRoot" class="detail-layout"></div>
+      <div id="detailRoot" class="detail-layout">
+        <div class="detail-info">
+          <h1>جزئیات اکانت کالاف دیوتی در کالاف شاپ</h1>
+          <p class="sub">مشخصات اکانت، لول، رنک، CP و آیتم‌ها در حال بارگذاری است.</p>
+        </div>
+      </div>
 
       <!-- اکانت‌های مشابه -->
       <div class="section" style="padding-top:10px">
@@ -64,10 +74,10 @@
       <div class="footer-grid">
         <div class="footer-about">
           <a href="index.html" class="logo">
-            <span class="logo-icon">🎮</span>
-            <span>کالاف<b>استور</b></span>
+            <img class="logo-icon" src="assets/img/kalaf-shop-logo.svg" width="40" height="40" alt="لوگوی کالاف شاپ">
+            <span>کالاف<b>شاپ</b></span>
           </a>
-          <p>کالاف‌استور، معتبرترین مرجع خرید و فروش اکانت کالاف دیوتی در ایران. همه اکانت‌ها با گارانتی اصالت، تحویل فوری و پشتیبانی ۲۴ ساعته.</p>
+          <p>کالاف شاپ برای مشاهده و مقایسهٔ اکانت‌های کالاف دیوتی و ثبت درخواست فروش اکانت طراحی شده است.</p>
           <div class="socials">
             <a href="#" title="اینستاگرام">📷</a>
             <a href="#" title="تلگرام">✈️</a>
@@ -126,13 +136,18 @@
         return;
       }
 
-      document.title = acc.title + " | کالاف‌استور";
+      document.title = acc.title + " | کالاف شاپ";
       document.getElementById("bcTitle").textContent = acc.title;
       const detailUrl = `${location.origin}${location.pathname}?id=${encodeURIComponent(acc.id)}`;
       document.getElementById("canonicalUrl").href = detailUrl;
       document.getElementById("ogTitle").content = `${acc.title} | کالاف شاپ`;
       document.getElementById("ogDescription").content = `مشخصات ${acc.title} از ${acc.game} را در کالاف شاپ بررسی کن.`;
       document.getElementById("ogUrl").content = detailUrl;
+      const productImage = new URL(acc.image, location.href).href;
+      document.getElementById("ogImage").content = productImage;
+      document.getElementById("twitterTitle").content = `${acc.title} | کالاف شاپ`;
+      document.getElementById("twitterDescription").content = `مشخصات ${acc.title} از ${acc.game} را در کالاف شاپ بررسی کن.`;
+      document.getElementById("twitterImage").content = productImage;
       const productSchema = document.createElement("script");
       productSchema.type = "application/ld+json";
       productSchema.textContent = JSON.stringify({
@@ -140,8 +155,9 @@
         "@type": "Product",
         "name": acc.title,
         "description": acc.desc,
-        "image": new URL(acc.image, location.href).href,
+        "image": productImage,
         "category": acc.game,
+        "brand": { "@type": "Brand", "name": "کالاف شاپ" },
         "url": detailUrl
       });
       document.head.appendChild(productSchema);
